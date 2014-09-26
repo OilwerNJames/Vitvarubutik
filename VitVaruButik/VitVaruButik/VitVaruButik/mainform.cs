@@ -15,7 +15,7 @@ namespace VitVaruButik
     public partial class Mainform : Form
     {
         public Mainform()
-        {
+        { 
             InitializeComponent();
         }
 
