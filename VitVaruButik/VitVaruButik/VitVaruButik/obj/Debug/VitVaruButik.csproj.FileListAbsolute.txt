@@ -1,1 +1,10 @@
 M:\Projects\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.exe.config
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.exe.config
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.exe
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.pdb
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csprojResolveAssemblyReference.cache
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.Properties.Resources.resources
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csproj.GenerateResource.Cache
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.exe
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.pdb
+\\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.Mainform.resources
