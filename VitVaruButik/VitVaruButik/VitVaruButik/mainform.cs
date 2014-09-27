@@ -17,6 +17,7 @@ namespace VitVaruButik
         public Mainform()
         { 
             InitializeComponent();
+            updateGUI();
         }
 
         MySqlConnection dbConn;
@@ -54,14 +55,55 @@ namespace VitVaruButik
             string sql;
             MySqlCommand cmd;
             MySqlDataReader rdr;
-            sql = "SELECT * from produkt";
+            if (cmbCatagories.Text == "A")
+            {
+                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass = 'A'";   
+            }
+            else if (cmbCatagories.Text == "B")
+            {
+                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'B'";  
+            }
+            else if (cmbCatagories.Text == "C")
+            {
+                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'C'"; 
+            }
+            else
+            {
+                sql = "error";
+            }
+         
             cmd = new MySqlCommand(sql, dbConn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                listView.Items.Add(rdr.GetString(0));
+                listView.Items.Add((rdr.GetString(0)) + "   " + rdr.GetString(1));
             }
         }
+
+        enum EnergiKlass
+        {
+            A,
+            B,
+            C,
+            D,
+            E,
+        }
+
+
+        private void updateGUI()
+        {
+           foreach (var item in Enum.GetValues(typeof(EnergiKlass)))
+        {
+            cmbCatagories.Items.Add(item);
+        }
+        }
+    
+
+    
+     
+
+
+
     }
 }
 
