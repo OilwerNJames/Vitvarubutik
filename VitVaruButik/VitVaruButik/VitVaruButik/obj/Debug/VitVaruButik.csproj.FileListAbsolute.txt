@@ -13,7 +13,6 @@ D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\D
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.pdb
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.exe
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\bin\Debug\VitVaruButik.pdb
-D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csprojResolveAssemblyReference.cache
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.Mainform.resources
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.Properties.Resources.resources
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csproj.GenerateResource.Cache

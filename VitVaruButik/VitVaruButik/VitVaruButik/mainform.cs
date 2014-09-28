@@ -49,28 +49,34 @@ namespace VitVaruButik
         private void button1_Click(object sender, EventArgs e)
         {
 
-
+            listView.Clear();
             DoThis();   
 
             string sql;
             MySqlCommand cmd;
             MySqlDataReader rdr;
-            if (cmbCatagories.Text == "A")
-            {
-                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass = 'A'";   
-            }
-            else if (cmbCatagories.Text == "B")
-            {
-                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'B'";  
-            }
-            else if (cmbCatagories.Text == "C")
-            {
-                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'C'"; 
-            }
+           // if (cmbCatagories.Text == "A")
+           // {
+            if (txtNamn.Text != string.Empty && cmbCatagories.Text != "Alla")
+                sql = ("SELECT energiklass, namn FROM produkt WHERE energiklass = " + "'" + cmbCatagories.Text + "'" + "AND namn = '" + txtNamn.Text + "'");
+            else if (cmbCatagories.Text != "Alla")
+                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = " + "'" + cmbCatagories.Text + "'";
+            else if (cmbCatagories.Text == "Alla" && txtNamn.Text != string.Empty)
+                sql = ("SELECT energiklass, namn FROM produkt WHERE namn = '" + txtNamn.Text + "'");
             else
-            {
-                sql = "error";
-            }
+                sql = "SELECT energiklass, namn FROM produkt";
+           // }
+           // else if (cmbCatagories.Text == "B")
+           // {
+           //     sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'B'";  
+          //  }
+          //  else if (cmbCatagories.Text == "C")
+          ////      sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'C'"; 
+          //  }
+         //   else
+         //   {
+            //    sql = "SELECT energiklass, namn FROM produkt";
+          //  }
          
             cmd = new MySqlCommand(sql, dbConn);
             rdr = cmd.ExecuteReader();
@@ -78,24 +84,27 @@ namespace VitVaruButik
             {
                 listView.Items.Add((rdr.GetString(0)) + "   " + rdr.GetString(1));
             }
+            updateGUI();
         }
 
         enum EnergiKlass
         {
+            Alla,
             A,
             B,
             C,
-            D,
-            E,
         }
 
 
         private void updateGUI()
         {
+            cmbCatagories.Items.Clear();
            foreach (var item in Enum.GetValues(typeof(EnergiKlass)))
         {
             cmbCatagories.Items.Add(item);
+            cmbCatagories.SelectedIndex = 0;
         }
+           
         }
     
 
