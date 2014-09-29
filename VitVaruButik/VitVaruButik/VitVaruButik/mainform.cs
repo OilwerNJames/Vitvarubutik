@@ -21,15 +21,11 @@ namespace VitVaruButik
         }
 
         MySqlConnection dbConn;
-
         public void DoThis()
         {
-
-
             string strConnect = "server=" + "195.178.235.60" + ";uid=" + "ad3193" + ";pwd=" + "941224" + ";database=" + "ad3193";
             try
             {
-
                 dbConn = new MySqlConnection(strConnect);
                 dbConn.Open();
                 if (dbConn.State.ToString() != "Open")
@@ -42,7 +38,6 @@ namespace VitVaruButik
             {
                 MessageBox.Show(ex.Message);
                 return;
-
             }
         }
 
@@ -55,26 +50,70 @@ namespace VitVaruButik
             string sql;
             MySqlCommand cmd;
             MySqlDataReader rdr;
-            // if (cmbCatagories.Text == "A")
-            // {
-            if (txtNamn.Text != string.Empty && cmbCatagories.Text != "Alla")
-                sql = ("SELECT energiklass, namn FROM produkt WHERE energiklass = " + "'" + cmbCatagories.Text + "'" + "AND namn = '" + txtNamn.Text + "'");
-            else if (cmbCatagories.Text != "Alla")
-                sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = " + "'" + cmbCatagories.Text + "'";
-            else if (cmbCatagories.Text == "Alla" && txtNamn.Text != string.Empty)
-                sql = ("SELECT energiklass, namn FROM produkt WHERE namn = '" + txtNamn.Text + "'");
+
+            if (cmbVaruGrupp.Text == "Alla" && cmbCatagories.Text != "Alla")
+            {
+                if (txtNamn.Text != string.Empty && cmbCatagories.Text != "Alla")
+                    sql = ("SELECT namn, energiklass, varugrupp FROM produkt WHERE energiklass = " + "'" + cmbCatagories.Text + "'" + "AND namn = '" + txtNamn.Text + "'");
+                
+                else if (cmbCatagories.Text != "Alla")
+                    sql = "SELECT namn, energiklass, varugrupp FROM produkt WHERE energiklass  = " + "'" + cmbCatagories.Text + "'";
+                
+                else if (cmbCatagories.Text == "Alla" && txtNamn.Text != string.Empty)
+                    sql = ("SELECT varugrupp, energiklass, namn FROM produkt WHERE namn = '" + txtNamn.Text + "'");
+               
+                else
+                    sql = "SELECT varugrupp, namn, produkt FROM produkt";
+            }
+            else if (cmbVaruGrupp.Text != "Alla" && cmbCatagories.Text == "Alla")
+            {
+                if (txtNamn.Text == string.Empty)
+                    sql = ("SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "'");
+                
+                else if (txtNamn.Text != string.Empty)
+                    sql = ("SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "'" + " AND namn = '" + txtNamn.Text + "'");
+                
+                else
+                    sql = "SELECT varugrupp, namn, produkt FROM produkt";
+                
+            }
+           
+            else if (cmbVaruGrupp.Text != "Alla" && cmbCatagories.Text != "Alla")
+            {
+                if (txtNamn.Text == string.Empty)
+                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "' AND energiklass = '" + cmbCatagories.Text + "'";
+                
+                else if (txtNamn.Text != string.Empty)
+                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "' AND energiklass = '" + cmbCatagories.Text + "' AND namn = '" + txtNamn.Text + "'";
+                
+                else
+                    sql = "SELECT varugrupp, namn, energiklass FROM produkt";
+                
+            }
+            
+            else if (cmbVaruGrupp.Text == "Alla" && cmbCatagories.Text == "Alla")
+            {
+                if (txtNamn.Text == string.Empty)
+                    sql = "SELECT varugrupp, namn, energiklass FROM produkt";
+
+                else
+                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE namn = '" + txtNamn.Text + "'";
+
+            }
+            
             else
-                sql = "SELECT energiklass, namn FROM produkt";
+                sql = "Select * FROM produkt";
+            
 
             cmd = new MySqlCommand(sql, dbConn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                listView.Items.Add((rdr.GetString(0)) + "   " + rdr.GetString(1));
+                string format = string.Format("{0, 0} {1, 20} {2, 40}", rdr.GetString(0), rdr.GetString(1), rdr.GetString(2));
+                listView.Items.Add(format);
             }
             updateGUI();
         }
-
         enum EnergiKlass
         {
             Alla,
@@ -82,19 +121,17 @@ namespace VitVaruButik
             B,
             C,
         }
-
         enum VaruGrupp
         {
             Alla,
             KylloFrys,
             Kaffe,
             Tvätt,
-            Matlagning,
         }
-
         private void updateGUI()
         {
             cmbCatagories.Items.Clear();
+            cmbVaruGrupp.Items.Clear();
             foreach (var item in Enum.GetValues(typeof(EnergiKlass)))
             {
                 cmbCatagories.Items.Add(item);
@@ -105,14 +142,7 @@ namespace VitVaruButik
                 cmbVaruGrupp.Items.Add(item);
                 cmbVaruGrupp.SelectedIndex = 0;
             }
-
         }
-
-
-
-
-
-
 
     }
 }
