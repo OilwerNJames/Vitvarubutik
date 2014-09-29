@@ -15,7 +15,7 @@ namespace VitVaruButik
     public partial class Mainform : Form
     {
         public Mainform()
-        { 
+        {
             InitializeComponent();
             updateGUI();
         }
@@ -24,7 +24,7 @@ namespace VitVaruButik
 
         public void DoThis()
         {
- 
+
 
             string strConnect = "server=" + "195.178.235.60" + ";uid=" + "ad3193" + ";pwd=" + "941224" + ";database=" + "ad3193";
             try
@@ -50,13 +50,13 @@ namespace VitVaruButik
         {
 
             listView.Clear();
-            DoThis();   
+            DoThis();
 
             string sql;
             MySqlCommand cmd;
             MySqlDataReader rdr;
-           // if (cmbCatagories.Text == "A")
-           // {
+            // if (cmbCatagories.Text == "A")
+            // {
             if (txtNamn.Text != string.Empty && cmbCatagories.Text != "Alla")
                 sql = ("SELECT energiklass, namn FROM produkt WHERE energiklass = " + "'" + cmbCatagories.Text + "'" + "AND namn = '" + txtNamn.Text + "'");
             else if (cmbCatagories.Text != "Alla")
@@ -65,19 +65,7 @@ namespace VitVaruButik
                 sql = ("SELECT energiklass, namn FROM produkt WHERE namn = '" + txtNamn.Text + "'");
             else
                 sql = "SELECT energiklass, namn FROM produkt";
-           // }
-           // else if (cmbCatagories.Text == "B")
-           // {
-           //     sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'B'";  
-          //  }
-          //  else if (cmbCatagories.Text == "C")
-          ////      sql = "SELECT energiklass, namn FROM produkt WHERE energiklass  = 'C'"; 
-          //  }
-         //   else
-         //   {
-            //    sql = "SELECT energiklass, namn FROM produkt";
-          //  }
-         
+
             cmd = new MySqlCommand(sql, dbConn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
@@ -95,21 +83,34 @@ namespace VitVaruButik
             C,
         }
 
+        enum VaruGrupp
+        {
+            Alla,
+            KylloFrys,
+            Kaffe,
+            Tvätt,
+            Matlagning,
+        }
 
         private void updateGUI()
         {
             cmbCatagories.Items.Clear();
-           foreach (var item in Enum.GetValues(typeof(EnergiKlass)))
-        {
-            cmbCatagories.Items.Add(item);
-            cmbCatagories.SelectedIndex = 0;
-        }
-           
-        }
-    
+            foreach (var item in Enum.GetValues(typeof(EnergiKlass)))
+            {
+                cmbCatagories.Items.Add(item);
+                cmbCatagories.SelectedIndex = 0;
+            }
+            foreach (var item in Enum.GetValues(typeof(VaruGrupp)))
+            {
+                cmbVaruGrupp.Items.Add(item);
+                cmbVaruGrupp.SelectedIndex = 0;
+            }
 
-    
-     
+        }
+
+
+
+
 
 
 

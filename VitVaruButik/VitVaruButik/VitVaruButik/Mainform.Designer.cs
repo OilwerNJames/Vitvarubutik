@@ -35,11 +35,13 @@
             this.cmbCatagories = new System.Windows.Forms.ComboBox();
             this.Catagory = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbVaruGrupp = new System.Windows.Forms.ComboBox();
+            this.lblVaru = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(257, 27);
+            this.button1.Location = new System.Drawing.Point(378, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -49,9 +51,9 @@
             // 
             // listView
             // 
-            this.listView.Location = new System.Drawing.Point(12, 114);
+            this.listView.Location = new System.Drawing.Point(12, 69);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(320, 154);
+            this.listView.Size = new System.Drawing.Size(441, 154);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.List;
@@ -59,7 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 98);
+            this.label1.Location = new System.Drawing.Point(9, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.cmbCatagories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCatagories.FormattingEnabled = true;
-            this.cmbCatagories.Location = new System.Drawing.Point(130, 29);
+            this.cmbCatagories.Location = new System.Drawing.Point(251, 30);
             this.cmbCatagories.Name = "cmbCatagories";
             this.cmbCatagories.Size = new System.Drawing.Size(121, 21);
             this.cmbCatagories.TabIndex = 4;
@@ -85,7 +87,7 @@
             // Catagory
             // 
             this.Catagory.AutoSize = true;
-            this.Catagory.Location = new System.Drawing.Point(127, 13);
+            this.Catagory.Location = new System.Drawing.Point(248, 14);
             this.Catagory.Name = "Catagory";
             this.Catagory.Size = new System.Drawing.Size(65, 13);
             this.Catagory.TabIndex = 5;
@@ -96,15 +98,35 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Namn";
+            this.label2.Text = "Produkt Namn";
+            // 
+            // cmbVaruGrupp
+            // 
+            this.cmbVaruGrupp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVaruGrupp.FormattingEnabled = true;
+            this.cmbVaruGrupp.Location = new System.Drawing.Point(124, 30);
+            this.cmbVaruGrupp.Name = "cmbVaruGrupp";
+            this.cmbVaruGrupp.Size = new System.Drawing.Size(121, 21);
+            this.cmbVaruGrupp.TabIndex = 7;
+            // 
+            // lblVaru
+            // 
+            this.lblVaru.AutoSize = true;
+            this.lblVaru.Location = new System.Drawing.Point(121, 14);
+            this.lblVaru.Name = "lblVaru";
+            this.lblVaru.Size = new System.Drawing.Size(58, 13);
+            this.lblVaru.TabIndex = 8;
+            this.lblVaru.Text = "VaruGrupp";
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 295);
+            this.ClientSize = new System.Drawing.Size(471, 240);
+            this.Controls.Add(this.lblVaru);
+            this.Controls.Add(this.cmbVaruGrupp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Catagory);
             this.Controls.Add(this.cmbCatagories);
@@ -128,6 +150,8 @@
         private System.Windows.Forms.ComboBox cmbCatagories;
         private System.Windows.Forms.Label Catagory;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbVaruGrupp;
+        private System.Windows.Forms.Label lblVaru;
     }
 }
 
