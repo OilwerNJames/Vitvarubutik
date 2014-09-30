@@ -44,7 +44,7 @@ namespace VitVaruButik
         private void button1_Click(object sender, EventArgs e)
         {
 
-            listView.Clear();
+          //  listViewData.Clear();
             DoThis();
 
             string sql;
@@ -110,7 +110,11 @@ namespace VitVaruButik
             while (rdr.Read())
             {
                 string format = string.Format("{0, 0} {1, 20} {2, 40}", rdr.GetString(0), rdr.GetString(1), rdr.GetString(2));
-                listView.Items.Add(format);
+
+
+                ListViewItem item = new ListViewItem(new[] { "1", "2", "3", "4" });
+                listViewData.Items.Add(item);
+
             }
             updateGUI();
         }
