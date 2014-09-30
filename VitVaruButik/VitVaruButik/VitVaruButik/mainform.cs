@@ -44,78 +44,26 @@ namespace VitVaruButik
         private void button1_Click(object sender, EventArgs e)
         {
 
-          //  listViewData.Clear();
+           listViewData.Items.Clear();
             DoThis();
 
             string sql;
             MySqlCommand cmd;
             MySqlDataReader rdr;
 
-            if (cmbVaruGrupp.Text == "Alla" && cmbCatagories.Text != "Alla")
-            {
-                if (txtNamn.Text != string.Empty && cmbCatagories.Text != "Alla")
-                    sql = ("SELECT namn, energiklass, varugrupp FROM produkt WHERE energiklass = " + "'" + cmbCatagories.Text + "'" + "AND namn = '" + txtNamn.Text + "'");
-                
-                else if (cmbCatagories.Text != "Alla")
-                    sql = "SELECT namn, energiklass, varugrupp FROM produkt WHERE energiklass  = " + "'" + cmbCatagories.Text + "'";
-                
-                else if (cmbCatagories.Text == "Alla" && txtNamn.Text != string.Empty)
-                    sql = ("SELECT varugrupp, energiklass, namn FROM produkt WHERE namn = '" + txtNamn.Text + "'");
-               
-                else
-                    sql = "SELECT varugrupp, namn, produkt FROM produkt";
-            }
-            else if (cmbVaruGrupp.Text != "Alla" && cmbCatagories.Text == "Alla")
-            {
-                if (txtNamn.Text == string.Empty)
-                    sql = ("SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "'");
-                
-                else if (txtNamn.Text != string.Empty)
-                    sql = ("SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "'" + " AND namn = '" + txtNamn.Text + "'");
-                
-                else
-                    sql = "SELECT varugrupp, namn, produkt FROM produkt";
-                
-            }
-           
-            else if (cmbVaruGrupp.Text != "Alla" && cmbCatagories.Text != "Alla")
-            {
-                if (txtNamn.Text == string.Empty)
-                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "' AND energiklass = '" + cmbCatagories.Text + "'";
-                
-                else if (txtNamn.Text != string.Empty)
-                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE varugrupp = '" + cmbVaruGrupp.Text + "' AND energiklass = '" + cmbCatagories.Text + "' AND namn = '" + txtNamn.Text + "'";
-                
-                else
-                    sql = "SELECT varugrupp, namn, energiklass FROM produkt";
-                
-            }
-            
-            else if (cmbVaruGrupp.Text == "Alla" && cmbCatagories.Text == "Alla")
-            {
-                if (txtNamn.Text == string.Empty)
-                    sql = "SELECT varugrupp, namn, energiklass FROM produkt";
-
-                else
-                    sql = "SELECT varugrupp, namn, energiklass FROM produkt WHERE namn = '" + txtNamn.Text + "'";
-
-            }
-            
-            else
-                sql = "Select * FROM produkt";
-            
+            sql = CreateSQLQuery(txtNamn.Text, cmbCatagories.SelectedIndex, cmbVaruGrupp.SelectedIndex);            
 
             cmd = new MySqlCommand(sql, dbConn);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                string format = string.Format("{0, 0} {1, 20} {2, 40}", rdr.GetString(0), rdr.GetString(1), rdr.GetString(2));
 
+                string[] productData = {rdr.GetString(1), rdr.GetString(2) };
 
-                ListViewItem item = new ListViewItem(new[] { "1", "2", "3", "4" });
-                listViewData.Items.Add(item);
+                listViewData.Items.Add(rdr.GetString(0)).SubItems.AddRange(productData);
 
             }
+
             updateGUI();
         }
         enum EnergiKlass
@@ -148,6 +96,92 @@ namespace VitVaruButik
             }
         }
 
+        private string CreateSQLQuery(string textboxtext, int energiKlassPosition, int varugruppPosition)
+        {
+            string sqlQuery = "SELECT namn, energiklass, modell, tillverkare, lagersaldo, pris FROM produkt ";
+
+            if (textboxtext != string.Empty)
+            {
+                sqlQuery += " WHERE namn = \"" + textboxtext + "\"";
+                switch (energiKlassPosition)
+                { 
+                    case 0:
+                        break;
+
+                    case 1:
+                        sqlQuery += " AND energiklass = \"" + "A\"";
+                        break;
+                    case 2:
+                        sqlQuery += " AND energiklass = \"" + "B\"";
+                        break;
+                    case 3:
+                        sqlQuery += " AND energiklass = \"" + "C\"";
+                        break;
+                }
+
+                switch (varugruppPosition)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        sqlQuery += " AND varugrupp = \"" + "KylloFrys\"";
+                        break;
+                    case 2:
+                        sqlQuery += " AND varugrupp = \"" + "Kaffe\"";
+                        break;
+                    case 3:
+                        sqlQuery += " AND varugrupp = \"" + "Tvätt\"";
+                        break;
+                }
+            }
+            else
+            {
+                switch (energiKlassPosition)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        sqlQuery += "WHERE energiklass = \"" + "A\"";
+                        break;
+                    case 2:
+                        sqlQuery += "WHERE energiklass = \"" + "B\"";
+                        break;
+                    case 3:
+                        sqlQuery += "WHERE energiklass = \"" + "C\"";
+                        break;
+                }
+
+                string maybeAnd = "";
+                if (energiKlassPosition != 0)
+                {
+                    maybeAnd = "AND";
+                }
+                else
+                {
+                    maybeAnd = "WHERE";
+                }
+
+                switch (varugruppPosition)
+                {
+                      
+                    case 0:
+                        break;
+
+                    case 1:
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "KylloFrys\"";
+                        break;
+                    case 2:
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "Kaffe\"";
+                        break;
+                    case 3:
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "Tvätt\"";
+                        break;
+                }
+            }
+            return sqlQuery;
+        }
     }
 }
 

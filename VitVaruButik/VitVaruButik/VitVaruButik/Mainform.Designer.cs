@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Test");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Test");
             this.button1 = new System.Windows.Forms.Button();
             this.listViewData = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
+            this.colNamn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEnergiKlass = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtNamn = new System.Windows.Forms.TextBox();
             this.cmbCatagories = new System.Windows.Forms.ComboBox();
             this.Catagory = new System.Windows.Forms.Label();
@@ -42,8 +39,10 @@
             this.cmbVaruGrupp = new System.Windows.Forms.ComboBox();
             this.lblVaru = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Modell = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Tillverkare = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Lagersaldo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Pris = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -61,33 +60,30 @@
             this.listViewData.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewData.AllowColumnReorder = true;
             this.listViewData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader5});
+            this.colNamn,
+            this.colEnergiKlass,
+            this.Modell,
+            this.Tillverkare,
+            this.Lagersaldo,
+            this.Pris});
             this.listViewData.GridLines = true;
-            this.listViewData.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewData.HoverSelection = true;
-            this.listViewData.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listViewData.Location = new System.Drawing.Point(12, 137);
+            this.listViewData.Location = new System.Drawing.Point(12, 126);
             this.listViewData.Name = "listViewData";
-            this.listViewData.Size = new System.Drawing.Size(441, 154);
+            this.listViewData.Size = new System.Drawing.Size(777, 264);
             this.listViewData.TabIndex = 1;
             this.listViewData.UseCompatibleStateImageBehavior = false;
             this.listViewData.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // colNamn
             // 
-            this.columnHeader1.Width = 40;
+            this.colNamn.Text = "Namn";
+            this.colNamn.Width = 100;
             // 
-            // label1
+            // colEnergiKlass
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Namn";
+            this.colEnergiKlass.Text = "Energiklass";
+            this.colEnergiKlass.Width = 100;
             // 
             // txtNamn
             // 
@@ -147,35 +143,34 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(245, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Varugrupp";
             // 
-            // label4
+            // Modell
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Energi Klass";
+            this.Modell.Text = "Modell";
+            this.Modell.Width = 180;
             // 
-            // label5
+            // Tillverkare
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(375, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Pris";
+            this.Tillverkare.Text = "Tillverkare";
+            this.Tillverkare.Width = 180;
+            // 
+            // Lagersaldo
+            // 
+            this.Lagersaldo.Text = "Lagersaldo";
+            this.Lagersaldo.Width = 100;
+            // 
+            // Pris
+            // 
+            this.Pris.Text = "Pris";
+            this.Pris.Width = 100;
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 303);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(801, 402);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblVaru);
             this.Controls.Add(this.cmbVaruGrupp);
@@ -183,7 +178,6 @@
             this.Controls.Add(this.Catagory);
             this.Controls.Add(this.cmbCatagories);
             this.Controls.Add(this.txtNamn);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.listViewData);
             this.Controls.Add(this.button1);
             this.Name = "Mainform";
@@ -197,7 +191,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listViewData;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNamn;
         private System.Windows.Forms.ComboBox cmbCatagories;
         private System.Windows.Forms.Label Catagory;
@@ -205,10 +198,12 @@
         private System.Windows.Forms.ComboBox cmbVaruGrupp;
         private System.Windows.Forms.Label lblVaru;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader colNamn;
+        private System.Windows.Forms.ColumnHeader colEnergiKlass;
+        private System.Windows.Forms.ColumnHeader Modell;
+        private System.Windows.Forms.ColumnHeader Tillverkare;
+        private System.Windows.Forms.ColumnHeader Lagersaldo;
+        private System.Windows.Forms.ColumnHeader Pris;
     }
 }
 
