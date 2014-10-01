@@ -17,11 +17,13 @@ namespace VitVaruButik
         public Mainform()
         {
             InitializeComponent();
+            connectToMySql();
+            search();
             updateGUI();
         }
 
         MySqlConnection dbConn;
-        public void DoThis()
+        public void connectToMySql()
         {
             string strConnect = "server=" + "195.178.235.60" + ";uid=" + "ad3193" + ";pwd=" + "941224" + ";database=" + "ad3193";
             try
@@ -41,30 +43,12 @@ namespace VitVaruButik
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
 
            listViewData.Items.Clear();
-            DoThis();
+            search();
 
-            string sql;
-            MySqlCommand cmd;
-            MySqlDataReader rdr;
-
-            sql = CreateSQLQuery(txtNamn.Text, cmbCatagories.SelectedIndex, cmbVaruGrupp.SelectedIndex);            
-
-            cmd = new MySqlCommand(sql, dbConn);
-            rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-
-                string[] productData = {rdr.GetString(1), rdr.GetString(2) };
-
-                listViewData.Items.Add(rdr.GetString(0)).SubItems.AddRange(productData);
-
-            }
-
-            updateGUI();
         }
         enum EnergiKlass
         {
@@ -76,9 +60,11 @@ namespace VitVaruButik
         enum VaruGrupp
         {
             Alla,
-            KylloFrys,
-            Kaffe,
+            KyloFrys,
+            Hem,
             Tvätt,
+            Städ,
+            Kök,
         }
         private void updateGUI()
         {
@@ -96,9 +82,33 @@ namespace VitVaruButik
             }
         }
 
+        private void search()
+        {
+            connectToMySql();
+
+            string sql;
+            MySqlCommand cmd;
+            MySqlDataReader rdr;
+
+            sql = CreateSQLQuery(txtNamn.Text, cmbCatagories.SelectedIndex, cmbVaruGrupp.SelectedIndex);
+
+            cmd = new MySqlCommand(sql, dbConn);
+            rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+
+                string[] productData = { rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5), rdr.GetString(6) };
+
+                listViewData.Items.Add(rdr.GetString(0)).SubItems.AddRange(productData);
+
+            }
+
+            updateGUI();
+        }
+
         private string CreateSQLQuery(string textboxtext, int energiKlassPosition, int varugruppPosition)
         {
-            string sqlQuery = "SELECT namn, energiklass, modell, tillverkare, lagersaldo, pris FROM produkt ";
+            string sqlQuery = "SELECT namn, energiklass, modell, tillverkare, lagersaldo, pris, artikelnummer FROM produkt ";
 
             if (textboxtext != string.Empty)
             {
@@ -125,13 +135,19 @@ namespace VitVaruButik
                         break;
 
                     case 1:
-                        sqlQuery += " AND varugrupp = \"" + "KylloFrys\"";
+                        sqlQuery += " AND varugrupp = \"" + "KyloFrys\"";
                         break;
                     case 2:
-                        sqlQuery += " AND varugrupp = \"" + "Kaffe\"";
+                        sqlQuery += " AND varugrupp = \"" + "Hem\"";
                         break;
                     case 3:
                         sqlQuery += " AND varugrupp = \"" + "Tvätt\"";
+                        break;
+                    case 4:
+                        sqlQuery += " AND varugrupp = \"" + "Städ\"";
+                        break;
+                    case 5:
+                        sqlQuery += " AND varugrupp = \"" + "Kök\"";
                         break;
                 }
             }
@@ -170,17 +186,34 @@ namespace VitVaruButik
                         break;
 
                     case 1:
-                        sqlQuery += maybeAnd + " varugrupp = \"" + "KylloFrys\"";
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "KyloFrys\"";
                         break;
                     case 2:
-                        sqlQuery += maybeAnd + " varugrupp = \"" + "Kaffe\"";
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "Hem\"";
                         break;
                     case 3:
                         sqlQuery += maybeAnd + " varugrupp = \"" + "Tvätt\"";
                         break;
+                    case 4:
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "Städ\"";
+                        break;
+                    case 5:
+                        sqlQuery += maybeAnd + " varugrupp = \"" + "Kök\"";
+                        break;
                 }
             }
             return sqlQuery;
+        }
+
+        private void buttonOpenProdukt_Click(object sender, EventArgs e)
+        {
+
+            string inputParam = listViewData.SelectedItems[0].SubItems[6].Text;
+            DetaliedForm newDetailedForm = new DetaliedForm(inputParam);
+               
+             newDetailedForm.Show();
+
+
         }
     }
 }

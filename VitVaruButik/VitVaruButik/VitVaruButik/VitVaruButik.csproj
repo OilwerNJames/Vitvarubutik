@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetaliedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetaliedForm.Designer.cs">
+      <DependentUpon>DetaliedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kundmanager.cs" />
     <Compile Include="Mainform.cs">
       <SubType>Form</SubType>
@@ -57,6 +63,9 @@
     <Compile Include="Produktmanager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DetaliedForm.resx">
+      <DependentUpon>DetaliedForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>
     </EmbeddedResource>
