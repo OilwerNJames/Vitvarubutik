@@ -23,7 +23,7 @@ namespace VitVaruButik
         }
 
         MySqlConnection dbConn;
-        public void connectToMySql()
+        private void connectToMySql()
         {
             string strConnect = "server=" + "195.178.235.60" + ";uid=" + "ad3193" + ";pwd=" + "941224" + ";database=" + "ad3193";
             try
@@ -208,9 +208,10 @@ namespace VitVaruButik
         private void buttonOpenProdukt_Click(object sender, EventArgs e)
         {
 
-            string inputParam = listViewData.SelectedItems[0].SubItems[6].Text;
-            DetaliedForm newDetailedForm = new DetaliedForm(inputParam);
+            string inputParamArtNr = listViewData.SelectedItems[0].SubItems[6].Text;
+            DetaliedForm newDetailedForm = new DetaliedForm(inputParamArtNr);
                
+
              newDetailedForm.Show();
 
 

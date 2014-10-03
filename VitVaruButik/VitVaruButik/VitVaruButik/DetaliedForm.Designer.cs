@@ -32,6 +32,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.produktBeskrivning = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelProduktPris = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelProduktTillverkare = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelProduktModell = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelArtikelNummer = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelProduktLagersaldo = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelProduktEnergiklass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelProduktNamn
@@ -55,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 104);
+            this.label2.Location = new System.Drawing.Point(11, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 2;
@@ -64,17 +76,137 @@
             // produktBeskrivning
             // 
             this.produktBeskrivning.AutoSize = true;
-            this.produktBeskrivning.Location = new System.Drawing.Point(41, 121);
+            this.produktBeskrivning.Location = new System.Drawing.Point(11, 110);
             this.produktBeskrivning.Name = "produktBeskrivning";
             this.produktBeskrivning.Size = new System.Drawing.Size(62, 13);
             this.produktBeskrivning.TabIndex = 3;
             this.produktBeskrivning.Text = "Beskrivning";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(41, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Pris";
+            // 
+            // labelProduktPris
+            // 
+            this.labelProduktPris.AutoSize = true;
+            this.labelProduktPris.Location = new System.Drawing.Point(85, 59);
+            this.labelProduktPris.Name = "labelProduktPris";
+            this.labelProduktPris.Size = new System.Drawing.Size(35, 13);
+            this.labelProduktPris.TabIndex = 5;
+            this.labelProduktPris.Text = "label4";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 167);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tillverkare";
+            // 
+            // labelProduktTillverkare
+            // 
+            this.labelProduktTillverkare.AutoSize = true;
+            this.labelProduktTillverkare.Location = new System.Drawing.Point(16, 184);
+            this.labelProduktTillverkare.Name = "labelProduktTillverkare";
+            this.labelProduktTillverkare.Size = new System.Drawing.Size(35, 13);
+            this.labelProduktTillverkare.TabIndex = 7;
+            this.labelProduktTillverkare.Text = "label5";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 167);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Modell";
+            // 
+            // labelProduktModell
+            // 
+            this.labelProduktModell.AutoSize = true;
+            this.labelProduktModell.Location = new System.Drawing.Point(149, 184);
+            this.labelProduktModell.Name = "labelProduktModell";
+            this.labelProduktModell.Size = new System.Drawing.Size(35, 13);
+            this.labelProduktModell.TabIndex = 9;
+            this.labelProduktModell.Text = "label6";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(171, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Artikelnummer";
+            // 
+            // labelArtikelNummer
+            // 
+            this.labelArtikelNummer.AutoSize = true;
+            this.labelArtikelNummer.Location = new System.Drawing.Point(251, 9);
+            this.labelArtikelNummer.Name = "labelArtikelNummer";
+            this.labelArtikelNummer.Size = new System.Drawing.Size(35, 13);
+            this.labelArtikelNummer.TabIndex = 11;
+            this.labelArtikelNummer.Text = "label7";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Lagersaldo:";
+            // 
+            // labelProduktLagersaldo
+            // 
+            this.labelProduktLagersaldo.AutoSize = true;
+            this.labelProduktLagersaldo.Location = new System.Drawing.Point(82, 8);
+            this.labelProduktLagersaldo.Name = "labelProduktLagersaldo";
+            this.labelProduktLagersaldo.Size = new System.Drawing.Size(35, 13);
+            this.labelProduktLagersaldo.TabIndex = 13;
+            this.labelProduktLagersaldo.Text = "label8";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 314);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Energiklass:";
+            // 
+            // labelProduktEnergiklass
+            // 
+            this.labelProduktEnergiklass.AutoSize = true;
+            this.labelProduktEnergiklass.Location = new System.Drawing.Point(88, 314);
+            this.labelProduktEnergiklass.Name = "labelProduktEnergiklass";
+            this.labelProduktEnergiklass.Size = new System.Drawing.Size(35, 13);
+            this.labelProduktEnergiklass.TabIndex = 15;
+            this.labelProduktEnergiklass.Text = "label9";
             // 
             // DetaliedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 381);
+            this.Controls.Add(this.labelProduktEnergiklass);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelProduktLagersaldo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelArtikelNummer);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelProduktModell);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelProduktTillverkare);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelProduktPris);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.produktBeskrivning);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -92,5 +224,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label produktBeskrivning;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelProduktPris;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelProduktTillverkare;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelProduktModell;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelArtikelNummer;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelProduktLagersaldo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelProduktEnergiklass;
     }
 }
