@@ -18,3 +18,4 @@ D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\D
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csproj.GenerateResource.Cache
 D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Förvaring\Github\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.DetaliedForm.resources
+D:\School_Files\GitHub\Vitvarubutik\VitVaruButik\VitVaruButik\VitVaruButik\obj\Debug\VitVaruButik.DetaliedForm.resources
